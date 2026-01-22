@@ -15,6 +15,8 @@ function summary_git_message --description "Generate semantic git commit message
     # 3. Set default language (if LANGUAGE_OUTPUT is not set externally, default to en-US)
     set -q LANGUAGE_OUTPUT; or set -l LANGUAGE_OUTPUT "en-US"
 
+    echo -e "⏳ Generating commit message with Fabric ($LANGUAGE_OUTPUT)...\n\n"
+
     # 4. Start assembling Prompt Context
     begin
         # --- Context A: Historical Style Reference (Few-Shot) ---
@@ -33,5 +35,7 @@ function summary_git_message --description "Generate semantic git commit message
         # --- Context C: Actual Changes (Diff) ---
         echo "### INPUT: Git Diff (Staged Changes)"
         git diff --cached
-    end | env LANGUAGE_OUTPUT=$LANGUAGE_OUTPUT fabric -p format_git_commit_message
+    end | env LANGUAGE_OUTPUT=$LANGUAGE_OUTPUT fabric -p format_git_commit_message | tee /dev/tty | pbcopy
+
+    echo -e "\n\n✅ Commit message generated! Result copied to clipboard."
 end
