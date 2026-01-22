@@ -1,4 +1,4 @@
-function summary_git_message --description "Generate semantic git commit message using Fabric with history context"
+function summarize_git_message --description "Generate semantic git commit message using Fabric with history context"
     # 1. Check if inside a Git project
     if not git rev-parse --is-inside-work-tree >/dev/null 2>&1
         echo "❌ Error: Not inside a git repository."
