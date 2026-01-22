@@ -1,0 +1,12 @@
+# Fabric Sensitive Information
+.env
+*.env
+.env.*
+
+# Temporary and Cache Archives
+unique_patterns.txt
+*.log
+*.tmp
+
+# Sessions that may contain sensitive conversations
+sessions/
