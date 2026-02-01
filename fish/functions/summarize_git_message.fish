@@ -35,7 +35,26 @@ function summarize_git_message --description "Generate semantic git commit messa
         # --- Context C: Actual Changes (Diff) ---
         echo "### INPUT: Git Diff (Staged Changes)"
         git diff --cached
-    end | env LANGUAGE_OUTPUT=$LANGUAGE_OUTPUT fabric -p format_git_commit_message | tee /dev/tty | pbcopy
+    end | begin
+        # --- Pipeline Stage: Fabric Processing & Clipboard ---
+        
+        # 1. 決定剪貼簿指令 (Strategy Pattern)
+        set -l clip_cmd
+        if type -q wl-copy
+            set clip_cmd wl-copy
+        else if type -q pbcopy
+            set clip_cmd pbcopy
+        else if type -q xclip
+            set clip_cmd xclip -selection clipboard
+        else
+            echo "❌ Error: No clipboard tool found (install wl-clipboard)." >&2
+            return 1
+        end
+
+        # 2. 執行 Fabric 並導入剪貼簿 (Single Pipeline)
+        # 注意：env 變數設定要放在 fabric 前面
+        env LANGUAGE_OUTPUT=$LANGUAGE_OUTPUT fabric -p format_git_commit_message | tee /dev/tty | $clip_cmd
+    end
 
     echo -e "\n\n✅ Commit message generated! Result copied to clipboard."
 end
