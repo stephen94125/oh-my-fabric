@@ -1,3 +1,7 @@
+if not set -q GEMINI_MODEL
+    set -Ux GEMINI_MODEL 'gemini-3-flash-preview'
+end
+
 function gemini-fab --description "Wrapper for fabric patterns with gemini"
     # 1. 解析參數 (-p pattern_name)
     # 格式: gemini-fab -p <pattern>
@@ -27,14 +31,11 @@ function gemini-fab --description "Wrapper for fabric patterns with gemini"
     # 4. 設定環境變數
     set -lx GEMINI_SYSTEM_MD $tmp_file
 
-    # --- 狀態提示 ---
+    # --- [新增] 狀態提示與模型判斷 ---
     set -l color_green (set_color green)
     set -l color_reset (set_color normal)
-    echo -e "$color_green🤖 Gemini-Fab Mode:$color_reset Pattern='$_flag_pattern' Model='$current_model'\n" >&2
-    # -------------------------
-
-    # 5. 直接執行
-    gemini 2>/dev/null
+    echo -e "$color_green🤖 Gemini-Fab:$color_reset '$_flag_pattern' using '$GEMINI_MODEL'\n" >&2
+    gemini -m "$GEMINI_MODEL" 2>/dev/null
 
     # 6. 清理
     rm -f $tmp_file
