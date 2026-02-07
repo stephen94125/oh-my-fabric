@@ -12,10 +12,7 @@ function summarize_git_message --description "Generate semantic git commit messa
         return 1
     end
 
-    # 3. Set default language (if LANGUAGE_OUTPUT is not set externally, default to en-US)
-    set -q LANGUAGE_OUTPUT; or set -l LANGUAGE_OUTPUT "en-US"
-
-    echo -e "⏳ Generating commit message with Fabric ($LANGUAGE_OUTPUT)...\n\n"
+    echo -e "⏳ Generating commit message with Fabric ($LANGUAGE_OUTPUT)...\n"
 
     # 4. Start assembling Prompt Context
     begin
@@ -52,8 +49,7 @@ function summarize_git_message --description "Generate semantic git commit messa
         end
 
         # 2. 執行 Fabric 並導入剪貼簿 (Single Pipeline)
-        # 注意：env 變數設定要放在 fabric 前面
-        env LANGUAGE_OUTPUT=$LANGUAGE_OUTPUT fabric -p format_git_commit_message | tee /dev/tty | $clip_cmd
+        fabric -p format_git_commit_message | tee /dev/tty | $clip_cmd
     end
 
     echo -e "\n\n✅ Commit message generated! Result copied to clipboard."
