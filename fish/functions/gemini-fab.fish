@@ -1,5 +1,5 @@
 if not set -q GEMINI_MODEL
-    set -Ux GEMINI_MODEL 'gemini-3-flash-preview'
+    set -Ux GEMINI_MODEL 'gemini-3.1-pro-preview'
 end
 
 function gemini-fab --description "Wrapper for fabric patterns with gemini"
@@ -35,7 +35,7 @@ function gemini-fab --description "Wrapper for fabric patterns with gemini"
     set -l color_green (set_color green)
     set -l color_reset (set_color normal)
     echo -e "$color_green🤖 Gemini-Fab:$color_reset '$_flag_pattern' using '$GEMINI_MODEL'\n" >&2
-    gemini -m "$GEMINI_MODEL" 2>/dev/null
+    gemini -m "$GEMINI_MODEL"
 
     # 6. 清理
     rm -f $tmp_file
