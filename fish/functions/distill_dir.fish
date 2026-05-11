@@ -5,6 +5,7 @@ function distill_dir --description "Batch distill markdown files from Source to 
 
     # --- Configuration ---
     set PATTERN "extract_by_pareto"
+    set ENGINE "gemini-fab"
     
     # --- Arguments Check ---
     if test (count $argv) -lt 2
@@ -17,8 +18,8 @@ function distill_dir --description "Batch distill markdown files from Source to 
     set target_dir (realpath -m $argv[2])
 
     # --- Safety Checks ---
-    if not type -q fabric
-        set_color red; echo "❌ [ERROR] Fabric not found in PATH"; set_color normal
+    if not type -q $ENGINE
+        set_color red; echo "❌ [ERROR] Engine not found in PATH: $ENGINE"; set_color normal
         return 1
     end
 
@@ -39,7 +40,8 @@ function distill_dir --description "Batch distill markdown files from Source to 
 
     # 搜尋檔案 (使用 ls -v 確保章節順序: 1, 2, 10...)
     # 這裡指向 source_dir 裡面的 .md
-    set files (ls -v "$source_dir"/*.md 2>/dev/null)
+    # set files (ls -v "$source_dir"/*.md 2>/dev/null)
+    set files "$source_dir"/*.md
     set total_files (count $files)
     
     if test $total_files -eq 0
@@ -90,7 +92,7 @@ function distill_dir --description "Batch distill markdown files from Source to 
         true > "$out_file"
         
         # 2. Fabric 處理 (無 Context 注入)
-        cat "$file_path" | fabric -p $PATTERN >> "$out_file"
+        cat "$file_path" | $ENGINE -p $PATTERN >> "$out_file"
         
         set processed_count (math $processed_count + 1)
     end

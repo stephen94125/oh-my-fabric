@@ -30,6 +30,7 @@ function gemini-fab --description "Wrapper for fabric patterns with gemini"
 
     # 4. 設定環境變數
     set -lx GEMINI_SYSTEM_MD $tmp_file
+    set -lx GEMINI_CLI_TRUST_WORKSPACE true
 
     # --- [新增] 狀態提示與模型判斷 ---
     set -l color_green (set_color green)
