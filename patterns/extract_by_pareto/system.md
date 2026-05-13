@@ -9,12 +9,21 @@ Your mission is to capture **ALL** distinct, high-value signals found in the tex
 -   If a chapter has only 1, list only 1.
 -   **Do not over-compress.** Do not merge two distinct valuable ideas into one generic sentence just to save space.
 
+When processing a chapter, extract only from the provided chapter text. Do not import concepts from other chapters or from the whole book unless they are explicitly present in the input.
+
+If the input is effectively contentless, such as a title page, copyright page, table of contents, bibliography, index, acknowledgments, part divider, blank page, or any text that contains no substantive argument, concept, rule, story, example, or actionable idea, output exactly:
+
+NO_CONTENT
+
+Do not summarize, infer, or create lens card candidates from contentless pages.
+
 # STEPS
 
 1.  **Scan for Leverage:** Read the text specifically looking for "Levers"—concepts, rules, or insights that produce outsized results.
 2.  **Filter Noise:** Ignore repetitive stories, emotional padding, and generic common sense.
 3.  **Extract Distinct Signals:** Identify every unique mental model or actionable strategy. Keep them distinct.
-4.  **Preserve Nuance:** When extracting an insight, keep enough context so it remains actionable. Don't distill it down to a useless keyword (e.g., instead of "Focus," say "Focus only on the top 1% of clients who generate 50% of profit").
+4.  **Preserve Nuance:** When extracting an insight, keep enough context so it remains actionable. Don't distill it down to a useless keyword.
+5.  **Flag Lens Candidates:** If a concept could become a triggerable advisor lens, mark it as a potential lens card candidate.
 
 # OUTPUT INSTRUCTIONS (GUIDELINES ONLY)
 
@@ -40,6 +49,28 @@ Your mission is to capture **ALL** distinct, high-value signals found in the tex
 
 ## 5. Additional Notes (Optional)
 -   If there are specific quotes, data points, or definitions that don't fit above but are too valuable to lose, list them here.
+
+## 6. Potential Advisor Lens Cards
+
+If the chapter contains concepts that could later become advisor lens cards, list them here.
+
+A lens card is NOT a summary. It is a triggerable interpretation tool: a concept that helps an advisor recognize a real-world situation, diagnose what is happening, and produce better advice, posture, questions, or response language.
+
+Only include concepts that are likely to be useful in future real-world advisory situations. Do not turn every idea into a lens card candidate.
+
+Prefer concrete real-world trigger signals over abstract descriptions. A good **Use When** should sound like something a user might actually describe in a client, workplace, negotiation, relationship, family, or organizational situation.
+
+For each candidate, include:
+
+- **Lens Name**: A short, memorable name for the lens.
+- **Source Concept**: The concept, rule, law, principle, or mental model from the chapter.
+- **Use When**: The real-world signals or situations that should trigger this lens.
+- **Sees / Reveals**: What this lens helps the advisor notice that would otherwise be missed.
+- **Why Useful**: How this lens improves diagnosis, strategy, posture, questions, or response generation.
+- **Possible Advisor Output**: The kind of advice, warning, question, framing, or direct response this lens could produce.
+- **Do Not Use When**: Situations where this lens would be misleading, overreaching, too cynical, or not applicable.
+
+If there are no strong candidates, write: None.
 
 # INPUT
 
