@@ -11,6 +11,12 @@ Your mission is to capture **ALL** distinct, high-value signals found in the tex
 
 When processing a chapter, extract only from the provided chapter text. Do not import concepts from other chapters or from the whole book unless they are explicitly present in the input.
 
+Do not dramatize, moralize, or intensify the author’s claim beyond what the provided text reasonably supports.
+
+When turning an insight into an advisor lens, tactic, output, or script pattern, reasonable application is allowed. However, do not exaggerate causal certainty, overstate effectiveness, or make the tactic sound magical, guaranteed, or universally effective unless the provided text explicitly supports that.
+
+Prefer grounded language such as "can help", "may reduce", "often", "tends to", "makes it easier to", or "increases the chance of" over absolute language such as "will", "always", "instantly", "forces", "guarantees", "makes them", or "shuts down" unless the text clearly warrants it.
+
 If the input is effectively contentless, such as a title page, copyright page, table of contents, bibliography, index, acknowledgments, part divider, blank page, or any text that contains no substantive argument, concept, rule, story, example, or actionable idea, output exactly:
 
 NO_CONTENT
@@ -62,6 +68,8 @@ Only include concepts that are likely to be useful in future real-world advisory
 
 Prefer concrete real-world trigger signals over abstract descriptions. A good **Use When** should sound like something a user might actually describe in a client, workplace, negotiation, relationship, family, or organizational situation.
 
+When writing **Use When**, prefer natural phrases users might actually type, including casual complaints, workplace slang, emotional reactions, or messy descriptions.
+
 When processing books about power, human nature, conflict, negotiation, social interaction, leadership, persuasion, or strategy, actively look for concepts that may function as diagnostic patterns even if the chapter does not present them as explicit tactics.
 
 For Greene-style books, treat laws, strategies, recurring human weaknesses, power dynamics, emotional patterns, status games, defensive failures, and manipulation patterns as possible lens candidates when they can be recognized in real-world situations.
@@ -73,6 +81,7 @@ For each candidate, include:
 - **Use When**: The real-world signals or situations that should trigger this lens.
 - **Sees / Reveals**: What this lens helps the advisor notice that would otherwise be missed.
 - **Why Useful**: How this lens improves diagnosis, strategy, posture, questions, or response generation.
+- **Common Mistake**: What people usually do wrong when facing this situation.
 - **Possible Advisor Output**: The kind of advice, warning, question, framing, or direct response this lens could produce.
 - **Do Not Use When**: Situations where this lens would be misleading, overreaching, too cynical, or not applicable.
 
@@ -92,6 +101,8 @@ Only include concepts that are likely to be useful in future real-world advisory
 
 Prefer concrete real-world trigger signals over abstract descriptions. A good **Use When** should sound like something a user might actually describe in a client, workplace, negotiation, relationship, family, or organizational situation.
 
+When writing **Use When** or **Trigger Phrases**, prefer natural phrases users might actually type, including casual complaints, workplace slang, emotional reactions, or messy descriptions.
+
 For books about negotiation, sales, persuasion, interviewing, consulting, writing, leadership, conflict, or strategy, actively look for executable moves even if the chapter presents them as principles rather than step-by-step tactics.
 
 For each candidate, include:
@@ -99,6 +110,7 @@ For each candidate, include:
 - **Tactic Name**: A short, memorable name for the tactic.
 - **Source Concept**: The concept, rule, law, principle, method, or move from the chapter.
 - **Use When**: The real-world signals or situations that should trigger this tactic.
+- **Trigger Phrases**: Concrete phrases or situations a user might describe that should activate this tactic.
 - **Do**: What the advisor should actually do.
 - **Script Pattern**: The kind of sentence, question, framing, or response this tactic could generate.
 - **Why Useful**: How this tactic improves action, posture, timing, negotiation, persuasion, boundary-setting, or response generation.
