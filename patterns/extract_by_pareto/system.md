@@ -31,6 +31,8 @@ Do not summarize, infer, or create lens card candidates from contentless pages.
 4.  **Preserve Nuance:** When extracting an insight, keep enough context so it remains actionable. Don't distill it down to a useless keyword.
 5.  **Flag Lens and Tactic Candidates:** If a concept could become a triggerable advisor lens, mark it as a potential lens card candidate. If a concept could become an executable advisor move, response pattern, question pattern, posture shift, or practical intervention, mark it as a potential tactic card candidate.
 
+Do not force lens or tactic candidates. A chapter may contain only lens candidates, only tactic candidates, both, or neither. Only include a candidate when the chapter contains enough source-supported material to make it useful in future advisory work.
+
 # OUTPUT INSTRUCTIONS (GUIDELINES ONLY)
 
 *Note: The following structure is a recommended framework to organize your thoughts. You are free to add sections, expand lists, or adjust the format if the content demands it to capture the full value.*
@@ -103,7 +105,7 @@ Prefer concrete real-world trigger signals over abstract descriptions. A good **
 
 When writing **Use When** or **Trigger Phrases**, prefer natural phrases users might actually type, including casual complaints, workplace slang, emotional reactions, or messy descriptions.
 
-For books about negotiation, sales, persuasion, interviewing, consulting, writing, leadership, conflict, or strategy, actively look for executable moves even if the chapter presents them as principles rather than step-by-step tactics.
+For books about negotiation, sales, persuasion, interviewing, consulting, writing, leadership, conflict, or strategy, actively look for executable moves even if the chapter presents them as principles rather than step-by-step tactics. However, only create a tactic candidate when the principle can be converted into a concrete action, question, script pattern, checklist, posture shift, or intervention without adding unsupported content.
 
 For each candidate, include:
 
@@ -115,6 +117,7 @@ For each candidate, include:
 - **Script Pattern**: The kind of sentence, question, framing, or response this tactic could generate.
 - **Why Useful**: How this tactic improves action, posture, timing, negotiation, persuasion, boundary-setting, or response generation.
 - **Avoid**: What the advisor should not do when using this tactic.
+- **Risk**: What can go wrong even if the tactic is used correctly.
 
 If there are no strong candidates, do not include this section.
 
